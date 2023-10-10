@@ -28,30 +28,48 @@
     // p.num=2147483647;
     
     // printf("My string: %s", p.name);
-char* name(int choice){
-    char* name;
-    switch (choice)
+
+ enum Choices {
+  ROCK,
+  PAPER,
+  SCISSORS
+};
+
+int getChoice(int input){
+    char* choice;
+    enum Choices c;
+    switch (input)
     {
     case 0:
-        name="Choice 0";
+        c = ROCK;
+        printf("Rock");
         break;
     
     case 1:
-        name="Choice 1";
+        c = PAPER;
+        printf("Paper");
         break;
     
+    case 2:
+        c = SCISSORS;
+        printf("Scissors");
+        break;
+
     default:
-        name="Does Not Exist";
+        choice="Does Not Exist";
         break;
     }
-    return name;
+    return c;
 }
 int main(){
     
     int choice;
     scanf("%d", &choice);
-    char* temp = name(choice);
-    printf("%s\n", temp);
+
+    int temp = getChoice(choice);
+    printf("%d\n", temp);
+    // char* temp = name(choice);
+    // printf("%s\n", temp);
 
     return 0;
 }
